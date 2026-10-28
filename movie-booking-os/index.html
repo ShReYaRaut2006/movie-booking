@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Movie Ticket Booking – Producer–Consumer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><h1>Movie Ticket Booking System</h1>
+<p>Producer–Consumer synchronization: customers produce booking requests, the booking system consumes them from a bounded buffer.</p></header>
+<main>
+<section class="card wide"><h2>Controls</h2><div class="controls">
+<button onclick="newCustomer()">Add customer request</button>
+<button class="alt" onclick="burst()">Send 8 requests (fill buffer)</button>
+<button class="alt" onclick="race()">Race: two customers, same seat</button>
+<label><input type="checkbox" id="pause" onchange="paused=this.checked"> Pause consumers (makes buffer fill up)</label>
+<label><input type="checkbox" id="lock" checked onchange="useLock=this.checked"> Protect seats with mutex</label>
+<button class="ghost" onclick="location.reload()">Reset</button></div></section>
+
+<section class="card"><h2>Seats – Screen 1</h2><div class="screen"></div><div class="seats" id="seats"></div>
+<div class="key"><span><i></i>Available</span><span><i class="b"></i>Booked</span><span><i class="c"></i>Double-booked (bug)</span><span>Coral ring = seat already booked</span></div></section>
+
+<section class="card"><h2>Booking queue (bounded buffer, BUFFER_SIZE = 5)</h2><div class="buf" id="buf"></div>
+<div class="stats" id="stats"></div></section>
+
+<section class="card wide"><h2>Console</h2><div id="log" role="log"></div></section>
+</main>
+<script src="script.js"></script></body></html>

@@ -1,0 +1,10 @@
+{
+  "name": "movie-booking-os",
+  "version": "1.0.0",
+  "description": "Movie Ticket Booking using Producer-Consumer synchronization",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
